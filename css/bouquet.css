@@ -13,20 +13,25 @@
 .bouquet-header {
   text-align: center;
   z-index: 10;
+  width: 100%;
 }
 
 .bouquet-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 44px;
+  font-size: 42px;
   color: var(--primary);
   text-shadow: 0 3px 16px rgba(255, 255, 255, 0.9);
   line-height: 1.15;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .bouquet-subtitle {
   font-size: 13.5px;
   color: var(--text-muted);
   margin-top: 2px;
+  white-space: nowrap;
+  text-align: center;
 }
 
 /* Khung bao ngoài bó hoa */
@@ -409,16 +414,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  margin-top: -4px;
+  margin-top: -6px;
   z-index: 12;
+  width: 100%;
+  text-align: center;
 }
 
 .signature {
   font-family: 'Dancing Script', cursive;
-  font-size: 25px;
+  font-size: 23.5px;
   color: var(--primary);
   text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  text-align: center;
 }
 
 .bouquet-actions {

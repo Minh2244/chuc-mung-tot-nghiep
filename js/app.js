@@ -47,24 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
      ============================================ */
   function fitAllScenesToViewport() {
     const isMobile = window.innerWidth <= 720;
-    const padX = isMobile ? 10 : 24;
-    const padY = isMobile ? 16 : 24;
+    const padX = isMobile ? 12 : 64;
+    const padY = isMobile ? 24 : 76;
     const availW = window.innerWidth - padX;
     const availH = window.innerHeight - padY;
 
     document.querySelectorAll('.scene-scale-box').forEach(box => {
-      // Nếu là khung tự co giãn theo CSS (như Thiệp lời chúc Scene 2), đo kích thước thật của nó
       const useNaturalDomSize = box.dataset.responsive === 'true';
       const naturalW = useNaturalDomSize
-        ? (box.offsetWidth || 360)
-        : (Number(box.dataset.w) || box.offsetWidth || 600);
+        ? Math.max(box.offsetWidth, box.scrollWidth, 320)
+        : Math.max(Number(box.dataset.w) || 0, box.offsetWidth, box.scrollWidth, 500);
       const naturalH = useNaturalDomSize
-        ? (box.offsetHeight || 520)
-        : (Number(box.dataset.h) || box.offsetHeight || 600);
+        ? Math.max(box.offsetHeight, box.scrollHeight, 420)
+        : Math.max(Number(box.dataset.h) || 0, box.offsetHeight, box.scrollHeight, 520);
 
       const scaleX = availW / naturalW;
       const scaleY = availH / naturalH;
-      const maxScale = isMobile ? 1.0 : 1.12;
+      // Trên laptop giữ tỷ lệ tối đa 0.94 để luôn có khoảng thở thoáng trên/dưới ở mức zoom 100%
+      const maxScale = isMobile ? 1.0 : 0.94;
       const scale = Math.min(maxScale, scaleX, scaleY);
       box.style.setProperty('--scene-scale', scale.toFixed(4));
     });
