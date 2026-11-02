@@ -46,17 +46,26 @@ document.addEventListener('DOMContentLoaded', () => {
      Tự động co giãn hoàn hảo trên mọi độ thu phóng Laptop & Điện thoại
      ============================================ */
   function fitAllScenesToViewport() {
-    const availW = window.innerWidth - 24;
-    const availH = window.innerHeight - 24;
+    const isMobile = window.innerWidth <= 720;
+    const padX = isMobile ? 10 : 24;
+    const padY = isMobile ? 16 : 24;
+    const availW = window.innerWidth - padX;
+    const availH = window.innerHeight - padY;
 
     document.querySelectorAll('.scene-scale-box').forEach(box => {
-      const naturalW = Number(box.dataset.w) || box.offsetWidth || 640;
-      const naturalH = Number(box.dataset.h) || box.offsetHeight || 640;
+      // Nếu là khung tự co giãn theo CSS (như Thiệp lời chúc Scene 2), đo kích thước thật của nó
+      const useNaturalDomSize = box.dataset.responsive === 'true';
+      const naturalW = useNaturalDomSize
+        ? (box.offsetWidth || 360)
+        : (Number(box.dataset.w) || box.offsetWidth || 600);
+      const naturalH = useNaturalDomSize
+        ? (box.offsetHeight || 520)
+        : (Number(box.dataset.h) || box.offsetHeight || 600);
 
       const scaleX = availW / naturalW;
       const scaleY = availH / naturalH;
-      // Cho phép thu nhỏ trên đt/màn hình nhỏ và phóng lớn nhẹ trên màn hình rộng
-      const scale = Math.min(1.12, scaleX, scaleY);
+      const maxScale = isMobile ? 1.0 : 1.12;
+      const scale = Math.min(maxScale, scaleX, scaleY);
       box.style.setProperty('--scene-scale', scale.toFixed(4));
     });
   }
@@ -176,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         greetingTextEl.innerHTML = cfg.greetingText + cursorHTML;
         letterFooter.classList.add('visible');
+        fitAllScenesToViewport();
         setTimeout(() => {
           continueBtn.classList.remove('btn-hidden');
           continueBtn.classList.add('btn-show');

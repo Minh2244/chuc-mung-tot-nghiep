@@ -130,10 +130,10 @@
    ========================================================= */
 .invitation-card {
   position: absolute;
-  left: 3.5%;
-  right: 3.5%;
-  top: 4.5%;
-  bottom: 4.5%;
+  left: 2%;
+  right: 2%;
+  top: 3.5%;
+  bottom: 3.5%;
   background:
     radial-gradient(circle at 12% 15%, rgba(255, 222, 234, 0.55) 0%, transparent 45%),
     radial-gradient(circle at 88% 85%, rgba(245, 223, 152, 0.45) 0%, transparent 45%),
@@ -506,7 +506,7 @@
 }
 
 .envelope.open .invitation-card {
-  transform: translateY(-95px) scale(1.08);
+  transform: translateY(-95px) scale(1.1);
   z-index: 6;
   box-shadow:
     0 24px 55px rgba(74, 28, 48, 0.36),
@@ -515,7 +515,7 @@
 }
 
 .envelope.open:hover .invitation-card {
-  transform: translateY(-102px) scale(1.1);
+  transform: translateY(-102px) scale(1.12);
   box-shadow:
     0 28px 65px rgba(158, 42, 76, 0.42),
     0 0 0 2.5px var(--gold);
