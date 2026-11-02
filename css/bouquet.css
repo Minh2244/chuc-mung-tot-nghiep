@@ -3,10 +3,13 @@
    ========================================================= */
 
 .bouquet-scene-wrapper {
+  width: 620px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 6px;
 }
 
@@ -14,16 +17,20 @@
   text-align: center;
   z-index: 10;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bouquet-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 42px;
+  font-size: 40px;
   color: var(--primary);
   text-shadow: 0 3px 16px rgba(255, 255, 255, 0.9);
   line-height: 1.15;
   white-space: nowrap;
   text-align: center;
+  width: 100%;
 }
 
 .bouquet-subtitle {
@@ -32,6 +39,7 @@
   margin-top: 2px;
   white-space: nowrap;
   text-align: center;
+  width: 100%;
 }
 
 /* Khung bao ngoài bó hoa */
@@ -418,13 +426,15 @@
   gap: 8px;
   margin-top: -6px;
   z-index: 12;
-  width: 100%;
+  width: 620px;
   text-align: center;
 }
 
 .signature {
+  display: block;
+  width: 100%;
   font-family: 'Dancing Script', cursive;
-  font-size: 23.5px;
+  font-size: 22.5px;
   color: var(--primary);
   text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
   white-space: nowrap;

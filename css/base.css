@@ -219,6 +219,7 @@ body {
 
 /* Khung tự động co giãn theo kích thước cửa sổ / thu phóng */
 .scene-scale-box {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;

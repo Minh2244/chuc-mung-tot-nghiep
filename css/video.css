@@ -3,30 +3,38 @@
    ========================================================= */
 
 .video-scene-wrapper {
+  width: 480px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 10px;
 }
 
 .video-header {
   text-align: center;
   z-index: 5;
+  width: 100%;
 }
 
 .video-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 40px;
+  font-size: 36px;
   color: var(--primary);
   text-shadow: 0 3px 15px rgba(255, 255, 255, 0.9);
-  line-height: 1.12;
+  line-height: 1.15;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .video-subtitle {
   font-size: 13.5px;
   color: var(--text-muted);
   margin-top: 2px;
+  white-space: nowrap;
+  text-align: center;
 }
 
 /* Khung rạp chiếu phim mạ vàng sang trọng & lớn */
