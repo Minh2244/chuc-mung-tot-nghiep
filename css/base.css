@@ -1,0 +1,302 @@
+/* =========================================================
+   BASE.CSS — Biến màu sắc, Reset, Nền, Hạt rơi & Auto-Fit
+   ========================================================= */
+
+:root {
+  --bg-1: #fff4e8;
+  --bg-2: #ffe2ed;
+  --bg-3: #e8dbf2;
+  --primary: #9e2a4c;
+  --primary-light: #d86c8e;
+  --primary-dark: #6e1831;
+  --gold: #d4af37;
+  --gold-light: #f5df98;
+  --gold-dark: #9e7818;
+  --cream: #fffdf8;
+  --text-main: #3e2736;
+  --text-muted: #7d5c6e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 18% 18%, #fff8ee 0%, transparent 45%),
+    radial-gradient(circle at 82% 16%, #ffe0ec 0%, transparent 50%),
+    radial-gradient(circle at 50% 85%, #f5d8e8 0%, transparent 55%),
+    linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 52%, var(--bg-3) 100%);
+  position: relative;
+}
+
+/* ==== Ánh sáng bokeh nền ==== */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(55px);
+  opacity: 0.45;
+  animation: orbFloat 14s ease-in-out infinite alternate;
+}
+
+.glow-orb.orb-1 {
+  width: 360px;
+  height: 360px;
+  background: #ffd1dc;
+  top: -80px;
+  left: -80px;
+}
+
+.glow-orb.orb-2 {
+  width: 420px;
+  height: 420px;
+  background: #ffe6b8;
+  bottom: -120px;
+  right: -90px;
+  animation-delay: -5s;
+}
+
+.glow-orb.orb-3 {
+  width: 280px;
+  height: 280px;
+  background: #e2c6f2;
+  top: 40%;
+  left: 65%;
+  animation-delay: -9s;
+}
+
+@keyframes orbFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(35px, -30px) scale(1.12); }
+}
+
+/* ==== Cánh hoa & hạt lấp lánh rơi ==== */
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -60px;
+  animation: fall linear infinite;
+  pointer-events: none;
+  will-change: transform;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(0deg) rotateX(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.78; }
+  90% { opacity: 0.78; }
+  100% {
+    transform: translate3d(var(--sway, 80px), 108vh, 0) rotate(540deg) rotateX(360deg);
+    opacity: 0;
+  }
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, var(--gold-light) 60%, transparent 100%);
+  box-shadow: 0 0 10px #fff, 0 0 18px var(--gold);
+  animation: twinkle ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.5); }
+  50%      { opacity: 0.9;  transform: scale(1.3); }
+}
+
+/* ==== Nút Bật/Tắt nhạc góc trên phải ==== */
+.top-bar {
+  position: fixed;
+  top: 16px;
+  right: 18px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  background: rgba(255, 253, 248, 0.85);
+  backdrop-filter: blur(10px);
+  color: var(--primary);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(80, 40, 60, 0.14);
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(158, 42, 76, 0.22);
+}
+
+.icon-btn.playing {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: #fff;
+  border-color: transparent;
+  animation: musicPulse 2s infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(216, 108, 142, 0.5); }
+  50%      { box-shadow: 0 0 0 10px rgba(216, 108, 142, 0); }
+}
+
+/* ==== Quản lý các Scene & Tự động Co Giãn (Auto-Fit) ==== */
+.scene {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              visibility 0.7s;
+}
+
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+/* Khung tự động co giãn theo kích thước cửa sổ / thu phóng */
+.scene-scale-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: scale(var(--scene-scale, 1));
+  transform-origin: center center;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+/* ==== Nút bấm dùng chung ==== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 30px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(158, 42, 76, 0.35);
+  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.btn:hover::after {
+  left: 140%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 32px rgba(158, 42, 76, 0.45);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--primary);
+  border: 1.5px solid rgba(158, 42, 76, 0.3);
+  box-shadow: 0 6px 18px rgba(80, 40, 60, 0.12);
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 10px 24px rgba(158, 42, 76, 0.22);
+}
+
+.btn-hidden {
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+}
+
+.btn-show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

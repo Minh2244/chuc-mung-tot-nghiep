@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chúc Mừng Tốt Nghiệp 🎓 | Trần Dương Hồng Lam (06/11/2026)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <!-- Thư viện Pháo giấy Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Các file CSS giao diện tách biệt -->
+  <link rel="stylesheet" href="css/base.css?v=3" />
+  <link rel="stylesheet" href="css/envelope.css?v=3" />
+  <link rel="stylesheet" href="css/letter.css?v=3" />
+  <link rel="stylesheet" href="css/bouquet.css?v=3" />
+  <link rel="stylesheet" href="css/video.css?v=3" />
+</head>
+<body>
+
+  <!-- Ánh sáng Bokeh nền -->
+  <div class="ambient-glow">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- Cánh hoa & Sao lấp lánh rơi -->
+  <div class="bg-particles"></div>
+
+  <!-- Chỉ giữ nút Bật/Tắt nhạc nhỏ gọn ở góc phải (Mặc định bật) -->
+  <header class="top-bar">
+    <div class="top-actions">
+      <button class="icon-btn playing" id="musicToggleBtn" title="Tắt nhạc nền">🎵</button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       SCENE 1: THIỆP MỜI & PHONG THƯ NIÊM PHONG SÁP CAO CẤP
+       ========================================================= -->
+  <section class="scene active" id="scene1">
+    <div class="scene-scale-box" data-w="560" data-h="610">
+      <div class="envelope-scene-wrapper" id="envelopeSceneWrapper">
+        <div class="intro-header">
+          <div class="intro-badge">
+            <span>🎓</span>
+            <span class="js-class-year">TOÁN ỨNG DỤNG • K48 • ĐH CẦN THƠ</span>
+            <span>✨</span>
+          </div>
+          <h1 class="intro-title">Thiệp Chúc Mừng Tốt Nghiệp</h1>
+          <p class="intro-subtitle">Dành tặng Tân Cử Nhân <strong class="js-recipient-name">Trần Dương Hồng Lam</strong> • <span class="js-date-text">Ngày 06/11/2026</span></p>
+        </div>
+
+        <div class="envelope-stage">
+          <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Mở phong thư chúc mừng tốt nghiệp">
+            <!-- Mặt lưng & lót lụa phong thư -->
+            <div class="env-back"></div>
+
+            <!-- Tấm thiệp mời thiết kế căn giữa cân đối bên trong phong thư -->
+            <div class="invitation-card">
+              <div class="card-inner-border">
+                <span class="card-corner tl"></span>
+                <span class="card-corner tr"></span>
+                <span class="card-corner bl"></span>
+                <span class="card-corner br"></span>
+
+                <!-- Hoa văn trang trí góc thiệp -->
+                <div class="card-floral-deco top-left">🌸</div>
+                <div class="card-floral-deco top-right">🌸</div>
+
+                <div class="card-centered-content">
+                  <div class="card-school-tag">🎓 ĐẠI HỌC CẦN THƠ • TRƯỜNG KHTN</div>
+                  <h2 class="card-heading">Happy Graduation!</h2>
+
+                  <!-- Khung thông tin Tân Cử Nhân căn giữa cân đối -->
+                  <div class="card-profile-row">
+                    <div class="card-avatar-ring">
+                      <img
+                        src="ảnh/1793600883413_2287570842013977784_1342522093597417382_b959392998140386d55db8810d6f4108.jpg"
+                        alt="Tân Cử Nhân Hồng Lam"
+                      />
+                    </div>
+                    <div class="card-graduate-box">
+                      <span class="card-graduate-label">Tân Cử Nhân • K48</span>
+                      <div class="card-recipient js-recipient-name">Trần Dương Hồng Lam</div>
+                      <div class="card-major">Ngành: Toán Ứng Dụng</div>
+                    </div>
+                  </div>
+
+                  <!-- Hàng 3 thẻ thông tin nằm chính giữa toàn chiều ngang thiệp -->
+                  <div class="card-badges-row">
+                    <span class="card-pill">📅 06/11/2026</span>
+                    <span class="card-pill">🕓 16h00 - 17h30</span>
+                    <span class="card-pill">📍 Hội trường Rùa</span>
+                  </div>
+
+                  <!-- Câu trích dẫn căn giữa toàn chiều ngang thiệp -->
+                  <p class="card-quote">“Một chặng đường khép lại, một hành trình rực rỡ bắt đầu ✨”</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mặt trước phong thư (3 vạt gấp có đổ bóng 3D rõ nét) -->
+            <div class="env-front">
+              <div class="flap-left-wrap"><div class="triangle-left"></div></div>
+              <div class="flap-right-wrap"><div class="triangle-right"></div></div>
+              <div class="flap-bottom-wrap"><div class="triangle-bottom"></div></div>
+            </div>
+
+            <!-- Dải ruy-băng lụa & viền vàng kim -->
+            <div class="env-ribbon-band"></div>
+            <div class="env-gold-trim"></div>
+
+            <!-- Nắp phong thư trên -->
+            <div class="env-flap-wrap">
+              <div class="env-flap"></div>
+            </div>
+
+            <!-- Con dấu sáp niêm phong -->
+            <div class="wax-seal-wrapper">
+              <div class="seal-pulse-ring"></div>
+              <div class="wax-seal">
+                <span class="wax-seal-icon">🎓</span>
+              </div>
+            </div>
+          </div>
+          <div class="envelope-shadow"></div>
+        </div>
+
+        <div class="envelope-hint" id="envelopeHint">
+          <span>✨ Chạm vào con dấu sáp để mở thư nha 💌</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SCENE 2: BỨC THƯ CHÚC MỪNG (CÓ ICON CHIBI NGƯỜI GỬI)
+       ========================================================= -->
+  <section class="scene" id="scene2">
+    <div class="scene-scale-box" data-w="700" data-h="600">
+      <div class="letter-scene-container">
+        <div class="letter-sheet">
+          <span class="sheet-corner tl"></span>
+          <span class="sheet-corner tr"></span>
+          <span class="sheet-corner bl"></span>
+          <span class="sheet-corner br"></span>
+
+          <div class="letter-header">
+            <div class="letter-crest">
+              <span>🎓</span>
+              <span class="js-class-year">TOÁN ỨNG DỤNG • K48 • ĐH CẦN THƠ</span>
+            </div>
+            <h2 class="greeting-title">Chúc Mừng Tốt Nghiệp!</h2>
+            <div class="letter-meta">
+              <span>Gửi bạn: <strong class="letter-to js-recipient-name">Trần Dương Hồng Lam</strong></span>
+              <span class="letter-date-badge">📅 <span class="js-date-text">Ngày 06/11/2026</span> • Hội trường Rùa</span>
+            </div>
+          </div>
+
+          <div class="letter-body-scroll">
+            <div class="greeting-text" id="greetingText"></div>
+          </div>
+
+          <!-- Chân thư: Con dấu & Icon Chibi từ ảnh của bạn -->
+          <div class="letter-footer" id="letterFooter">
+            <div class="grad-stamp">
+              <span>🏅</span>
+              <span>Happy Graduation • 06/11</span>
+            </div>
+            <div class="sender-chibi-box">
+              <span class="sender-chibi-label">Tặng Lam nè 👉</span>
+              <img
+                id="senderChibiImg"
+                class="sender-chibi-avatar"
+                src="ảnh/chibi_sender.jpg"
+                alt="Chibi người gửi"
+              />
+            </div>
+          </div>
+
+          <div class="letter-actions">
+            <button class="btn btn-hidden" id="continueBtn">
+              <span>Nhận bó hoa tốt nghiệp 💐 →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SCENE 3: BÓ HOA TỐT NGHIỆP ĐẦY ẮP HOA & 3 TẤM ẢNH
+       ========================================================= -->
+  <section class="scene" id="scene3">
+    <div class="scene-scale-box" data-w="650" data-h="665">
+      <div class="bouquet-scene-wrapper">
+        <div class="bouquet-header">
+          <h2 class="bouquet-title">Bó Hoa Tốt Nghiệp Tặng Hồng Lam 🌻</h2>
+          <p class="bouquet-subtitle">✨ Nhấn vào từng tấm ảnh trên bó hoa để xem rõ hơn nha! ✨</p>
+        </div>
+
+        <div class="bouquet-stage">
+          <div class="bouquet">
+            <div class="bouquet-aura"></div>
+
+            <!-- Lớp 1: Giấy gói hoa xòe phía sau -->
+            <div class="wrap-back-layer">
+              <div class="paper-fan fan-left"></div>
+              <div class="paper-fan fan-right"></div>
+              <div class="paper-fan fan-center"></div>
+              <div class="paper-tissue"></div>
+            </div>
+
+            <!-- Lớp 2: Hoa lá viền quanh vòm trên (SVG) -->
+            <div class="bouquet-crown-flora">
+              <svg class="crown-svg" viewBox="0 0 620 515" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Cành lá khuynh diệp (Eucalyptus) -->
+                  <g id="leaf-branch">
+                    <path d="M0,60 Q-5,30 0,0" stroke="#4f7a5a" stroke-width="3" fill="none"/>
+                    <ellipse cx="-14" cy="45" rx="14" ry="8" transform="rotate(-30 -14 45)" fill="#6b9e78"/>
+                    <ellipse cx="14" cy="38" rx="14" ry="8" transform="rotate(30 14 38)" fill="#5c8d68"/>
+                    <ellipse cx="-12" cy="22" rx="12" ry="7" transform="rotate(-25 -12 22)" fill="#7bb088"/>
+                    <ellipse cx="12" cy="16" rx="12" ry="7" transform="rotate(25 12 16)" fill="#6b9e78"/>
+                    <ellipse cx="0" cy="2" rx="9" ry="12" fill="#88bd95"/>
+                  </g>
+
+                  <!-- Chùm hoa Baby trắng (Gypsophila) -->
+                  <g id="baby-cluster">
+                    <path d="M0,40 L-15,12 M0,40 L0,5 M0,40 L16,14 M-8,25 L-22,22 M8,25 L22,22" stroke="#7da67e" stroke-width="1.8" fill="none"/>
+                    <circle cx="-15" cy="12" r="6" fill="#ffffff"/><circle cx="-15" cy="12" r="2" fill="#f7d560"/>
+                    <circle cx="0" cy="5" r="6.5" fill="#ffffff"/><circle cx="0" cy="5" r="2" fill="#f7d560"/>
+                    <circle cx="16" cy="14" r="6" fill="#ffffff"/><circle cx="16" cy="14" r="2" fill="#f7d560"/>
+                    <circle cx="-22" cy="22" r="5" fill="#ffffff"/>
+                    <circle cx="22" cy="22" r="5" fill="#ffffff"/>
+                    <circle cx="-6" cy="18" r="5.5" fill="#ffffff"/>
+                    <circle cx="8" cy="19" r="5.5" fill="#ffffff"/>
+                  </g>
+
+                  <!-- Hoa Hướng Dương Lớn (Sunflower) -->
+                  <g id="sunflower">
+                    <g fill="#f9b814">
+                      <ellipse cx="0" cy="-28" rx="8" ry="18"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(30)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(60)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(90)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(120)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(150)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(180)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(210)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(240)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(270)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(300)"/>
+                      <ellipse cx="0" cy="-28" rx="8" ry="18" transform="rotate(330)"/>
+                    </g>
+                    <g fill="#ffd438" transform="rotate(15)">
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(30)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(60)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(90)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(120)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(150)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(180)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(210)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(240)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(270)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(300)"/>
+                      <ellipse cx="0" cy="-25" rx="6.5" ry="16" transform="rotate(330)"/>
+                    </g>
+                    <circle cx="0" cy="0" r="16" fill="#6b3b18"/>
+                    <circle cx="0" cy="0" r="12" fill="#47240c" stroke="#d98a2b" stroke-width="2" stroke-dasharray="3 3"/>
+                    <circle cx="-4" cy="-4" r="1.8" fill="#f7b733"/>
+                    <circle cx="4" cy="-3" r="1.8" fill="#f7b733"/>
+                    <circle cx="0" cy="4" r="1.8" fill="#f7b733"/>
+                  </g>
+
+                  <!-- Hoa Hồng Phấn (Pink Rose) -->
+                  <g id="rose-pink">
+                    <circle cx="0" cy="0" r="32" fill="#f48fb1"/>
+                    <circle cx="-8" cy="-8" r="22" fill="#f8bbd0"/>
+                    <circle cx="10" cy="-6" r="21" fill="#f06292"/>
+                    <circle cx="6" cy="10" r="21" fill="#f48fb1"/>
+                    <circle cx="-10" cy="8" r="20" fill="#ec407a"/>
+                    <circle cx="0" cy="0" r="18" fill="#f8bbd0"/>
+                    <path d="M-12,-4 C-6,-14 8,-14 12,-2 C15,8 4,15 -6,11 C-14,7 -12,-6 -3,-8 C4,-10 8,-3 4,3 C1,7 -5,5 -5,0" fill="none" stroke="#c2185b" stroke-width="2.5" stroke-linecap="round"/>
+                  </g>
+
+                  <!-- Hoa Hồng Kem Dâu (Cream/Peach Rose) -->
+                  <g id="rose-cream">
+                    <circle cx="0" cy="0" r="30" fill="#ffd8be"/>
+                    <circle cx="-7" cy="-7" r="20" fill="#fff0e5"/>
+                    <circle cx="9" cy="-5" r="20" fill="#ffbfa0"/>
+                    <circle cx="5" cy="9" r="19" fill="#ffd8be"/>
+                    <circle cx="-8" cy="7" r="18" fill="#ffab85"/>
+                    <circle cx="0" cy="0" r="16" fill="#fff3eb"/>
+                    <path d="M-10,-3 C-5,-12 7,-12 10,-2 C13,7 3,13 -5,9 C-12,6 -10,-5 -2,-7 C3,-8 7,-2 3,2" fill="none" stroke="#d96b43" stroke-width="2.2" stroke-linecap="round"/>
+                  </g>
+
+                  <!-- Hoa Cúc Họa Mi (White Daisy) -->
+                  <g id="daisy">
+                    <g fill="#ffffff" stroke="#f0e6ea" stroke-width="0.8">
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(36)"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(72)"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(108)"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(144)"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(180)"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(216)"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(252)"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(288)"/>
+                      <ellipse cx="0" cy="-16" rx="5.5" ry="12" transform="rotate(324)"/>
+                    </g>
+                    <circle cx="0" cy="0" r="9" fill="#f7b733"/>
+                    <circle cx="0" cy="0" r="6" fill="#e69500"/>
+                  </g>
+
+                  <!-- Hoa Tulip Hồng (Pink Tulip) -->
+                  <g id="tulip">
+                    <path d="M-14,8 C-18,-12 -8,-24 -2,-12 C0,-26 0,-26 2,-12 C8,-24 18,-12 14,8 C10,20 -10,20 -14,8 Z" fill="#e85d88"/>
+                    <path d="M-8,10 C-12,-6 -4,-18 0,-6 C4,-18 12,-6 8,10 Z" fill="#ff94b4"/>
+                  </g>
+                </defs>
+
+                <!-- Lá và hoa điểm xuyết viền trên và hai bên các tấm ảnh -->
+                <use href="#leaf-branch" transform="translate(68, 95) rotate(-42) scale(1.25)"/>
+                <use href="#leaf-branch" transform="translate(198, 22) rotate(-18) scale(1.15)"/>
+                <use href="#leaf-branch" transform="translate(422, 22) rotate(18) scale(1.15)"/>
+                <use href="#leaf-branch" transform="translate(552, 95) rotate(42) scale(1.25)"/>
+                <use href="#leaf-branch" transform="translate(45, 200) rotate(-65) scale(1.2)"/>
+                <use href="#leaf-branch" transform="translate(575, 200) rotate(65) scale(1.2)"/>
+
+                <use href="#baby-cluster" transform="translate(155, 38) rotate(-20) scale(1.15)"/>
+                <use href="#baby-cluster" transform="translate(465, 38) rotate(20) scale(1.15)"/>
+                <use href="#daisy" transform="translate(65, 165) scale(0.95)"/>
+                <use href="#daisy" transform="translate(555, 165) scale(0.95)"/>
+              </svg>
+            </div>
+
+            <!-- Lớp 3: 3 Tấm ảnh kỷ niệm Polaroid trên đỉnh bó hoa -->
+            <div class="bouquet-photos" id="bouquetPhotos"></div>
+
+            <!-- Lớp 4: Giấy gói hoa mặt trước (Côn giấy xếp nếp) -->
+            <div class="wrap-front-cone">
+              <div class="cone-collar"></div>
+              <div class="cone-fold-left"></div>
+              <div class="cone-fold-right"></div>
+            </div>
+
+            <!-- Lớp 5: VƯỜN HOA TỐT NGHIỆP RỰC RỠ TRƯỚC NGỰC BÓ HOA (Đè lên miệng giấy gói!) -->
+            <div class="bouquet-main-flowers">
+              <svg class="main-flowers-svg" viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Cành lá khuynh diệp & hoa baby lót nền cụm hoa chính -->
+                <use href="#leaf-branch" transform="translate(82, 115) rotate(-75) scale(1.3)"/>
+                <use href="#leaf-branch" transform="translate(538, 115) rotate(75) scale(1.3)"/>
+                <use href="#leaf-branch" transform="translate(185, 148) rotate(-145) scale(1.15)"/>
+                <use href="#leaf-branch" transform="translate(435, 148) rotate(145) scale(1.15)"/>
+                <use href="#leaf-branch" transform="translate(310, 162) rotate(180) scale(1.2)"/>
+
+                <use href="#baby-cluster" transform="translate(92, 65) rotate(-38) scale(1.25)"/>
+                <use href="#baby-cluster" transform="translate(528, 65) rotate(38) scale(1.25)"/>
+                <use href="#baby-cluster" transform="translate(238, 42) rotate(-10) scale(1.2)"/>
+                <use href="#baby-cluster" transform="translate(382, 42) rotate(10) scale(1.2)"/>
+                <use href="#baby-cluster" transform="translate(160, 145) rotate(-135) scale(1.15)"/>
+                <use href="#baby-cluster" transform="translate(460, 145) rotate(135) scale(1.15)"/>
+                <use href="#baby-cluster" transform="translate(270, 152) rotate(165) scale(1.15)"/>
+                <use href="#baby-cluster" transform="translate(350, 152) rotate(-165) scale(1.15)"/>
+
+                <!-- Hoa Tulip hai bên rìa -->
+                <use href="#tulip" transform="translate(105, 92) rotate(-32) scale(1.25)"/>
+                <use href="#tulip" transform="translate(515, 92) rotate(32) scale(1.25)"/>
+                <use href="#tulip" transform="translate(205, 55) rotate(-14) scale(1.15)"/>
+                <use href="#tulip" transform="translate(415, 55) rotate(14) scale(1.15)"/>
+
+                <!-- Hoa Hồng Kem & Hồng Phấn xen kẽ dày đặc -->
+                <use href="#rose-cream" transform="translate(142, 108) scale(1.08)"/>
+                <use href="#rose-cream" transform="translate(478, 108) scale(1.08)"/>
+                <use href="#rose-pink" transform="translate(252, 112) scale(1.15)"/>
+                <use href="#rose-pink" transform="translate(368, 112) scale(1.15)"/>
+                <use href="#rose-cream" transform="translate(310, 66) scale(1.05)"/>
+
+                <!-- 3 Bông Hoa Hướng Dương Tốt Nghiệp Lớn Nổi Bật -->
+                <use href="#sunflower" transform="translate(196, 94) scale(1.18)"/>
+                <use href="#sunflower" transform="translate(424, 94) scale(1.18)"/>
+                <use href="#sunflower" transform="translate(310, 106) scale(1.36)"/>
+
+                <!-- Cúc họa mi trắng điểm xuyết phía trước -->
+                <use href="#daisy" transform="translate(118, 134) scale(1.05)"/>
+                <use href="#daisy" transform="translate(502, 134) scale(1.05)"/>
+                <use href="#daisy" transform="translate(228, 140) scale(1.1)"/>
+                <use href="#daisy" transform="translate(392, 140) scale(1.1)"/>
+                <use href="#daisy" transform="translate(268, 72) scale(0.95)"/>
+                <use href="#daisy" transform="translate(352, 72) scale(0.95)"/>
+              </svg>
+            </div>
+
+            <!-- Lớp 6: Nơ ruy-băng lụa thắt eo bó hoa -->
+            <div class="ribbon-bow-wrapper">
+              <div class="ribbon-waist"></div>
+              <div class="bow-tail left"></div>
+              <div class="bow-tail right"></div>
+              <div class="bow-loop left"></div>
+              <div class="bow-loop right"></div>
+              <div class="bow-knot">🎓</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bouquet-footer">
+          <p class="signature">— Chúc mừng Tân Cử Nhân <span class="js-recipient-name">Trần Dương Hồng Lam</span> (06/11/2026) 💕 —</p>
+          <div class="bouquet-actions">
+            <button class="btn" id="goToVideoBtn">🎬 Tiếp theo: Xem video kỷ niệm →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SCENE 4: KHUNG CHIẾU VIDEO KỶ NIỆM LỚN
+       ========================================================= -->
+  <section class="scene" id="scene4">
+    <div class="scene-scale-box" data-w="660" data-h="685">
+      <div class="video-scene-wrapper">
+        <div class="video-header">
+          <h2 class="video-title" id="videoTitle">Kỷ Niệm Ngày Tốt Nghiệp Của Hồng Lam 🎬</h2>
+          <p class="video-subtitle" id="videoSubtitle">Ngày 06/11/2026 • Hội trường Rùa - Đại học Cần Thơ</p>
+        </div>
+
+        <div class="video-frame-card">
+          <span class="video-corner tl"></span>
+          <span class="video-corner tr"></span>
+          <span class="video-corner bl"></span>
+          <span class="video-corner br"></span>
+
+          <div class="video-player-box">
+            <video
+              id="gradVideo"
+              class="graduation-video"
+              controls
+              playsinline
+              preload="metadata"
+            >
+              Trình duyệt của bạn không hỗ trợ phát video.
+            </video>
+          </div>
+
+          <div class="video-caption-bar" id="videoCaption">
+            🎓 Chúc mừng tốt nghiệp Hồng Lam — Luôn vui vẻ và thành công nha! 💕
+          </div>
+        </div>
+
+        <div class="video-actions">
+          <button class="btn btn-secondary" id="backToBouquetBtn">← Quay lại bó hoa</button>
+          <button class="btn btn-secondary" id="replayBtn">↺ Xem lại từ đầu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       LIGHTBOX MODAL: PHÓNG TO ẢNH KỶ NIỆM KHI CLICK
+       ========================================================= -->
+  <div class="photo-modal" id="photoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-polaroid">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Đóng">✕</button>
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="" />
+      </div>
+      <h3 class="modal-caption-title" id="modalTitle"></h3>
+      <p class="modal-caption-desc" id="modalDesc"></p>
+      <div class="modal-nav">
+        <button class="modal-nav-btn" id="modalPrevBtn">← Ảnh trước</button>
+        <span class="modal-counter" id="modalCounter">1 / 3</span>
+        <button class="modal-nav-btn" id="modalNextBtn">Ảnh tiếp →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Các file JS xử lý dữ liệu, hiệu ứng & tương tác -->
+  <script src="js/config.js?v=3"></script>
+  <script src="js/effects.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>
